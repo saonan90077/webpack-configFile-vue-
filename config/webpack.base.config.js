@@ -21,7 +21,7 @@ module.exports = {
 		rules: [
 			{
 				test: /\.js$/,
-				loader: "babel-loader",// .babelrc的配置暂时只兼容到IE9
+				loader: "babel-loader",// babel.config.js的配置暂时只兼容到IE9
 				exclude: /node_modules/,
 				include: [path.resolve(__dirname, "../src")]
 			},
