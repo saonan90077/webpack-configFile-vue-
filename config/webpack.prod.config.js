@@ -2,6 +2,7 @@ const webpack = require("webpack");
 const baseConfig = require("./webpack.base.config.js");
 const merge = require("webpack-merge");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = merge(baseConfig, {
@@ -37,6 +38,7 @@ module.exports = merge(baseConfig, {
   	},
   	plugins: [
   		new CleanWebpackPlugin(),
+		new UglifyJsPlugin(),
   		new webpack.HashedModuleIdsPlugin()
   	]
 })
