@@ -29,7 +29,7 @@ module.exports = {
 				test: /\.css$/,
 				use: [
 					// "style-loader",
-					MiniCssExtractPlugin.loader,
+					MiniCssExtractPlugin.loader,//只用于生产环境
 					{
 						loader: "css-loader",
 						options: {
@@ -43,7 +43,7 @@ module.exports = {
 				test: /\.less$/,
 				use: [
 					// "style-loader",
-					MiniCssExtractPlugin.loader,
+					MiniCssExtractPlugin.loader,//只用于生产环境
 					{
 						loader: "css-loader",
 						options: {
@@ -58,7 +58,7 @@ module.exports = {
 				test: /\.scss$/,
 				use: [
 					// "style-loader",
-					MiniCssExtractPlugin.loader,
+					MiniCssExtractPlugin.loader,//只用于生产环境
 					{
 						loader: "css-loader",
 						options: {
