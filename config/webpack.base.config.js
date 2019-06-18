@@ -102,6 +102,12 @@ module.exports = {
 	      	}
 		]
 	},
+	resolve: {
+		alias: {
+			// vue: "vue/dist/vue.esm.js",//开发
+			vue: "vue/dist/vue.min.js",//生产
+		}
+	},
 	plugins: [
 		new HtmlWebpackPlugin({
 			title: "u7power",
