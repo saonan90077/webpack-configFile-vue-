@@ -22,7 +22,7 @@ module.exports = merge(baseConfig, {
 	        },
 	        commons: {
 	        	chunks: "all",
-	        	test: /[\\/]components[\\/]/,
+	        	test: /[\\/]src[\\/]/,
 	            name: "commons",
 	            minChunks: 2,
 	            priority: -20
