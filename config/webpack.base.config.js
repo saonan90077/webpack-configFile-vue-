@@ -127,7 +127,7 @@ module.exports = {
 		}),
 		// 定义全局变量
 		new webpack.ProvidePlugin({
-			Vue: "vue/dist/vue.js",
+			Vue: NODE_ENV === "development" ? "vue/dist/vue.js" : "vue/dist/vue.min.js",
 			Swiper: "swiper/dist/js/swiper.min.js"
 		}),
 		new VueLoaderPlugin()
