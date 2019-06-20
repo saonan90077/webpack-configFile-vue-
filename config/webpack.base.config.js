@@ -10,6 +10,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
+const NODE_ENV = process.env.NODE_ENV;
+
 module.exports = {
 	entry: {
 		main: path.resolve(__dirname, "../src/main.js")
@@ -28,8 +30,7 @@ module.exports = {
 			{
 				test: /\.css$/,
 				use: [
-					// "style-loader",
-					MiniCssExtractPlugin.loader,//只用于生产环境
+					NODE_ENV === "development" ? "style-loader" : MiniCssExtractPlugin.loader,
 					{
 						loader: "css-loader",
 						options: {
@@ -42,8 +43,7 @@ module.exports = {
 			{
 				test: /\.less$/,
 				use: [
-					// "style-loader",
-					MiniCssExtractPlugin.loader,//只用于生产环境
+					NODE_ENV === "development" ? "style-loader" : MiniCssExtractPlugin.loader,
 					{
 						loader: "css-loader",
 						options: {
@@ -57,8 +57,7 @@ module.exports = {
 			{
 				test: /\.scss$/,
 				use: [
-					// "style-loader",
-					MiniCssExtractPlugin.loader,//只用于生产环境
+					NODE_ENV === "development" ? "style-loader" : MiniCssExtractPlugin.loader,
 					{
 						loader: "css-loader",
 						options: {
@@ -103,9 +102,10 @@ module.exports = {
 		]
 	},
 	resolve: {
+		// 设置别名
 		alias: {
 			// vue: "vue/dist/vue.esm.js",//开发
-			vue: "vue/dist/vue.min.js",//生产
+			// vue: "vue/dist/vue.min.js",//生产
 		}
 	},
 	plugins: [
@@ -121,8 +121,14 @@ module.exports = {
 				to: path.resolve(__dirname, "../dist/static")
 			}
 		]),
+		// 分离css
 		new MiniCssExtractPlugin({
-			filename: "css/[name].[hash:6].u7Power.css"
+			filename:  NODE_ENV === "development" ? "[name].u7Power-mall.css": "css/[name].[hash:6].u7Power-mall.css"
+		}),
+		// 定义全局变量
+		new webpack.ProvidePlugin({
+			Vue: "vue/dist/vue.js",
+			Swiper: "swiper/dist/js/swiper.min.js"
 		}),
 		new VueLoaderPlugin()
 	]
