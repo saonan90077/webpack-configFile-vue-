@@ -30,7 +30,7 @@ module.exports = merge(baseConfig, {
 	      }
 	    },
 	    runtimeChunk: {
-	    	name: "manifest "
+	    	name: "manifest"
 	    },
 	    minimizer: [
 	      new OptimizeCSSAssetsPlugin({})
