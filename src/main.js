@@ -1,9 +1,7 @@
-import "../static/reset.css";
-import Vue from "vue";
+import "../static/css/reset.css";
 import App from "./app.vue";
 
-
 new Vue({
-	el: "#app",
+	el: "#u7power-mall",
 	render: h => h(App)
 })
